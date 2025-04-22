@@ -1,0 +1,14 @@
+# نستخدم صورة Ubuntu كأساس
+FROM ubuntu:latest
+
+# تحديث الحزم وتثبيت bash
+RUN apt-get update && apt-get install -y bash
+
+# إضافة السكريبت إلى الحاوية
+COPY hello.sh /hello.sh
+
+# منح أذونات التنفيذ للسكريبت
+RUN chmod +x /hello.sh
+
+# تنفيذ السكريبت عند تشغيل الحاوية
+CMD ["/hello.sh"]
